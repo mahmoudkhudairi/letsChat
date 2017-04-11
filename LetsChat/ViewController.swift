@@ -7,18 +7,29 @@
 //
 
 import UIKit
-
-class ViewController: UIViewController {
+import Firebase
+class ViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+       
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "LogOut", style: .plain, target: self, action: #selector(handleLogout))
+        if FIRAuth.auth()?.currentUser?.uid == nil {
+            perform(#selector(handleLogout), with: nil, afterDelay: 0)
+            handleLogout()
+        }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func handleLogout(){
+        do {
+       try FIRAuth.auth()?.signOut()
+        }catch let logoutError {
+            print(logoutError)
+        }
+        let loginController = LoginViewController()
+        present(loginController,animated: true, completion: nil)
+        
     }
+    
 
 
 }
