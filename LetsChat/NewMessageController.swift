@@ -39,7 +39,6 @@ class NewMessageController: UITableViewController {
                     self.tableView.reloadData()
                 })
                 
-                //                user.name = dictionary["name"]
             }
             
         }, withCancel: nil)

@@ -16,6 +16,7 @@
 		247700751E9D307600DF2595 /* LoginController+handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247700741E9D307600DF2595 /* LoginController+handlers.swift */; };
 		247700771E9DB96300DF2595 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 247700761E9DB96300DF2595 /* Assets.xcassets */; };
 		24A0EF231E9E0C9200BD6AA8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A0EF221E9E0C9200BD6AA8 /* Extensions.swift */; };
+		24A0EF251E9E484E00BD6AA8 /* ChatLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A0EF241E9E484E00BD6AA8 /* ChatLogController.swift */; };
 		24FB07A01E9CA73B004286C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FB079F1E9CA73B004286C2 /* AppDelegate.swift */; };
 		24FB07A21E9CA73B004286C2 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FB07A11E9CA73B004286C2 /* MessagesViewController.swift */; };
 		24FB07A51E9CA73B004286C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24FB07A31E9CA73B004286C2 /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 		247700741E9D307600DF2595 /* LoginController+handlers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LoginController+handlers.swift"; sourceTree = "<group>"; };
 		247700761E9DB96300DF2595 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		24A0EF221E9E0C9200BD6AA8 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		24A0EF241E9E484E00BD6AA8 /* ChatLogController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatLogController.swift; sourceTree = "<group>"; };
 		24FB079C1E9CA73B004286C2 /* LetsChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetsChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24FB079F1E9CA73B004286C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24FB07A11E9CA73B004286C2 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 		24FB07B11E9CA98F004286C2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				24A0EF241E9E484E00BD6AA8 /* ChatLogController.swift */,
 				247700741E9D307600DF2595 /* LoginController+handlers.swift */,
 				24FB07B21E9CA9BC004286C2 /* LoginViewController.swift */,
 				24FB07A11E9CA73B004286C2 /* MessagesViewController.swift */,
@@ -275,6 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24A0EF251E9E484E00BD6AA8 /* ChatLogController.swift in Sources */,
 				247700671E9D244300DF2595 /* NewMessageController.swift in Sources */,
 				24FB07B31E9CA9BC004286C2 /* LoginViewController.swift in Sources */,
 				2477006C1E9D24B200DF2595 /* User.swift in Sources */,

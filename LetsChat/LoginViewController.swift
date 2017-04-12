@@ -18,15 +18,15 @@ class LoginViewController: UIViewController {
         view.layer.masksToBounds = true
         return view
     }()
-    let loginRegisterButton : UIButton = {
+    lazy var loginRegisterButton : UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = UIColor(r: 70, g: 101, b: 151)
+        button.backgroundColor = UIColor(r: 104, g: 239, b: 173)  //70,101,151
         button.setTitle("Register", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(UIColor .white, for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        button.titleLabel?.font = UIFont.italicSystemFont(ofSize: 16)//  boldSystemFont(ofSize: 16)
         button.addTarget(self, action: #selector(handleLoginRegister), for: .touchUpInside)
-        button.layer.cornerRadius = 5
+        button.layer.cornerRadius = 25
         button.layer.masksToBounds = true
         return button
     }()
@@ -65,7 +65,7 @@ class LoginViewController: UIViewController {
     
     lazy var profileImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "uploadedImage")
+        imageView.image = UIImage(named: "uploadImage")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
        
@@ -80,7 +80,7 @@ class LoginViewController: UIViewController {
     lazy var loginRegisterSegmentedControl :UISegmentedControl = {
         let sc = UISegmentedControl(items: ["Login", "Register"])
         sc.translatesAutoresizingMaskIntoConstraints = false
-        sc.tintColor = UIColor.white
+        sc.tintColor = UIColor(r: 104, g: 239, b: 173)
         sc.selectedSegmentIndex = 1
         
         sc.addTarget(self, action: #selector(handleLoginRegisterChange), for: .valueChanged)
@@ -89,7 +89,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = UIColor(r: 61, g: 91, b: 151)
+        view.backgroundColor = UIColor(r: 155, g: 38, b: 175) //61,91,151
         view.addSubview(inputsContainerView)
         view.addSubview(loginRegisterButton)
         view.addSubview(profileImageView)
