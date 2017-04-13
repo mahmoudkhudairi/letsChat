@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import FirebaseMessaging
+import UserNotifications
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -21,9 +23,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         window?.rootViewController = UINavigationController(rootViewController: MessagesViewController())
+        
+        registerPushNotification(application: application)
         return true
     }
-
+    
+    func registerPushNotification(application: UIApplication){
+        if #available(iOS 10.0, *) {
+            // For iOS 10 display notification (sent via APNS)
+            UNUserNotificationCenter.current().delegate = self
+            
+            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+            UNUserNotificationCenter.current().requestAuthorization(
+                options: authOptions,
+                completionHandler: {_, _ in })
+            
+            // For iOS 10 data message (sent via FCM)
+            FIRMessaging.messaging().remoteMessageDelegate = self
+            
+        } else {
+            let settings: UIUserNotificationSettings =
+                UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            application.registerUserNotificationSettings(settings)
+        }
+        
+        application.registerForRemoteNotifications()
+        
+    }
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
@@ -44,8 +70,50 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+      
+        
+    }
+  //MARK: Notification
+//    func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings) {
+//        //notification types banner , no , alert ... ios9
+//    }
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        var token = ""
+        for i in 0..<deviceToken.count {
+            token = token + String(format: "%02.2hhx", arguments: [deviceToken[i]])
+        }
+        print(token)
     }
 
-
+//    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+//        
+//    }
+    
+//    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+//        
+//    }
+    
 }
+extension AppDelegate: UNUserNotificationCenterDelegate{
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        let presentionOption : UNNotificationPresentationOptions = [.alert , .sound, .badge]
+        completionHandler(presentionOption)
+    }
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+    }
+}
+extension AppDelegate: FIRMessagingDelegate{
+    func applicationReceivedRemoteMessage(_ remoteMessage: FIRMessagingRemoteMessage) {
+        
+    }
+}
+
+
+//1 creat certificates
+//2 request for permision
+//3 register for push
+//4 device token
+//5 send token
 

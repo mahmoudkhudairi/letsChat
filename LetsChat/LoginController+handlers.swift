@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-extension LoginViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension LoginViewController: UIImagePickerControllerDelegate,UITextFieldDelegate, UINavigationControllerDelegate {
     
     func handleRegister() {
         guard let email = emailTextField.text, let password = passwordTextField.text, let name = nameTextField.text else {
@@ -98,5 +98,12 @@ extension LoginViewController: UIImagePickerControllerDelegate, UINavigationCont
         print("canceled picker")
         dismiss(animated: true, completion: nil)
     }
-    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+        
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
 }

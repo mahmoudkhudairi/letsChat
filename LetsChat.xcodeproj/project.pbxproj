@@ -37,6 +37,7 @@
 		247700761E9DB96300DF2595 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		24A0EF221E9E0C9200BD6AA8 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		24A0EF241E9E484E00BD6AA8 /* ChatLogController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatLogController.swift; sourceTree = "<group>"; };
+		24A891231E9F71950021F43E /* LetsChat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LetsChat.entitlements; sourceTree = "<group>"; };
 		24FB079C1E9CA73B004286C2 /* LetsChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetsChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24FB079F1E9CA73B004286C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24FB07A11E9CA73B004286C2 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +120,7 @@
 		24FB079E1E9CA73B004286C2 /* LetsChat */ = {
 			isa = PBXGroup;
 			children = (
+				24A891231E9F71950021F43E /* LetsChat.entitlements */,
 				24A0EF211E9E0C8100BD6AA8 /* Helper */,
 				2477006D1E9D271200DF2595 /* View */,
 				247700681E9D249900DF2595 /* model */,
@@ -188,8 +190,13 @@
 				TargetAttributes = {
 					24FB079B1E9CA73A004286C2 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 5WMS2B626T;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = ZQ547JDPVM;
+						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -413,11 +420,16 @@
 			baseConfigurationReference = 573F17158414EFEE51E61DA5 /* Pods-LetsChat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 5WMS2B626T;
+				CODE_SIGN_ENTITLEMENTS = LetsChat/LetsChat.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = ZQ547JDPVM;
 				INFOPLIST_FILE = LetsChat/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mahmoudkhudairi.LetsChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "02e5a172-e814-41d2-89da-04ea472fb46c";
+				PROVISIONING_PROFILE_SPECIFIER = "LetsChat -Dev";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -427,11 +439,16 @@
 			baseConfigurationReference = C04A27BC8B072BF01A8792B3 /* Pods-LetsChat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 5WMS2B626T;
+				CODE_SIGN_ENTITLEMENTS = LetsChat/LetsChat.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = ZQ547JDPVM;
 				INFOPLIST_FILE = LetsChat/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mahmoudkhudairi.LetsChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "d45392b9-0115-4bee-8972-9bd6e014449a";
+				PROVISIONING_PROFILE_SPECIFIER = "LetsChat - AppStore";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
