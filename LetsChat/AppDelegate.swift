@@ -10,6 +10,8 @@ import UIKit
 import Firebase
 import FirebaseMessaging
 import UserNotifications
+import Fabric
+import Crashlytics
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -25,6 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = UINavigationController(rootViewController: MessagesViewController())
         
         registerPushNotification(application: application)
+        Fabric.with([Crashlytics.self])
+
         return true
     }
     
